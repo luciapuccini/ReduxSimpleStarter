@@ -30,10 +30,10 @@ class PostsIndex extends Component {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return bindActionCreators({ fetchPosts }, dispatch)
-// }
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ fetchPosts }, dispatch)
+}
 const mapStateToProps = (state) => {
     return { posts: state.posts }
 }
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
