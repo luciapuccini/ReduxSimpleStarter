@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import PostsNew from './components/post_new'
 import PostsIndex from './components/post_index';
 import store from './store'
+import PostsShow from './components/post_show';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/posts/new" component={PostsNew} />
+          <Route path="/posts/:id" component={PostsShow} />
           <Route path="/" component={PostsIndex} />
         </Switch>
       </div>
