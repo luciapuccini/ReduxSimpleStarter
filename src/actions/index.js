@@ -27,10 +27,9 @@ export const createPost = (values, callback) => {
 export const fetchPost = (id) => {
     return (dispatch) => {
         axios.get(`${URL}/posts/${id}${API_KEY}`)
-
             .then(res => dispatch({
                 type: FETCH_POST,
                 payload: res
-            })
+            }))
     }
 }
