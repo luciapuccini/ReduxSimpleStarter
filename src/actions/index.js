@@ -1,4 +1,4 @@
-import { FETCH_POSTS, CREATE_POST, FETCH_POST } from './types';
+import { FETCH_POSTS, CREATE_POST, FETCH_POST, DELETE_POST } from './types';
 import axios from 'axios';
 
 const URL = 'http://reduxblog.herokuapp.com/api';
@@ -30,6 +30,16 @@ export const fetchPost = (id) => {
             .then(res => dispatch({
                 type: FETCH_POST,
                 payload: res
+            }))
+    }
+}
+export const deletePost = (id, callback) => {
+    return (dispatch) => {
+        axios.delete(`${URL}/posts/${id}${API_KEY}`)
+            .then(() => callback())
+            .then(res => dispatch({
+                type: DELETE_POST,
+                payload: id
             }))
     }
 }

@@ -7,14 +7,17 @@ import { Link } from 'react-router-dom'
 
 class PostsIndex extends Component {
     componentDidMount() {
-        this.props.fetchPosts();
-
+        if (!this.props.post) {
+            this.props.fetchPosts();
+        }
     }
     renderPosts() {
         return _.map(this.props.posts, post => {
             return (
                 <li className="list-group-item" key={post.id}>
-                    title: {post.title}
+                    <Link to={`/posts/${post.id}`}>
+                        title: {post.title}
+                    </Link>
                 </li >
             );
         });
