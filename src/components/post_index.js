@@ -4,6 +4,7 @@ import { fetchPosts } from '../actions'
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom'
+//import SelectedPostsList from './components/selected_posts_list.js'
 
 class PostsIndex extends Component {
     componentDidMount() {
@@ -22,6 +23,7 @@ class PostsIndex extends Component {
             );
         });
     }
+
     render() {
         return (
             <div>
